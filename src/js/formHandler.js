@@ -8,15 +8,15 @@ export const handleSubmit = async (event) => {
     return;
   }
 
-  const response = await fetch("http://localhost:8080/analyze", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ url }),
-  });
-
   try {
+    const response = await fetch("http://localhost:8080/analyze", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ url }),
+    });
+
     if (!response.ok) {
       console.error(`HTTP error! status: ${response.status}`);
       const errorText = await response.text();
